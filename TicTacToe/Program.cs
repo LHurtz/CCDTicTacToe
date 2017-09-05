@@ -18,8 +18,23 @@ namespace TicTacToe
             Application.SetCompatibleTextRenderingDefault(false);
 
             var form = new Form1();
-            var gameState = Integration.StartNewGame();
+            var requestHandler = new RequestHandler();
+
+            var gameState = requestHandler.StartProgram();
             form.DisplayGameState(gameState);
+
+            form.NewGameClicked += () =>
+            {
+                var newGameState = requestHandler.StartNewGame();
+                form.DisplayGameState(newGameState);
+            };
+
+            form.CellClicked += coordinates =>
+            {
+                var nextGameState = requestHandler.PlayTurn(coordinates);
+                form.DisplayGameState(nextGameState);
+            };
+
             Application.Run(form);
         }
     }

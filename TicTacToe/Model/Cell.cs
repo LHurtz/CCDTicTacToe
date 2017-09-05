@@ -12,6 +12,6 @@ namespace TicTacToe
         public int X { get; private set; }
         public int Y { get; private set; }
 
-        public CellState CellState { get; private set; }
+        public CellState CellState { get; set; }
     }
 }
