@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace TicTacToe
+namespace TicTacToe.Portals
 {
-    public partial class Form1 : Form
+    public partial class GameDialog : Form
     {
         public event Action<(int x, int y)> CellClicked;
         public event Action NewGameClicked;
 
 
-        public Form1()
+        public GameDialog()
         {
             InitializeComponent();
             SetUpButtonClickEvents();
@@ -77,10 +77,13 @@ namespace TicTacToe
                     break;
                 case Status.Tie:
                     //Show tie screen
+                    lblPlayerIndication.Text = "Unentschieden";
                     break;
                 case Status.TurnO:
+                    lblPlayerIndication.Text = "Spieler O ist an der Reihe.";
                     break;
                 case Status.TurnX:
+                    lblPlayerIndication.Text = "Spieler X ist an der Reihe.";
                     break;
             }
         }

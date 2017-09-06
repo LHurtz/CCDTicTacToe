@@ -3,40 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TicTacToe.Model;
 
 namespace TicTacToe
 {
     class GameStateGenerator
     {
-        internal static Cell[] GenerateBoard(List<(int x, int y)> moveList)
+        internal static Cell[] GenerateBoard(List<Move> moveList)
         {
             var initGameState = GameState.Init();
             var cells = initGameState.Board;
 
-            foreach (var turn in moveList)
+            foreach (var move in moveList)
             {
-                var cellStateToSet = GetCellStateToSet(turn, moveList);
-
-                cells.Single(c => c.X == turn.x && c.Y == turn.y).CellState = cellStateToSet;
+                cells.Single(c => c.X == move.X && c.Y == move.Y).CellState = move.Player;
             }
             return cells;
-        }
-
-        internal static Status DetermineNextPlayer(int count)
-        {
-            var status = Status.TurnX;
-
-            var mod = count % 2;
-
-            if (mod == 0)
-            {
-                status = Status.TurnX;
-            }
-            else if (mod == 1)
-            {
-                status = Status.TurnO;
-            }
-            return status;
         }
 
         private static CellState GetCellStateToSet(ValueTuple<int, int> turn, List<(int x, int y)> moveList)

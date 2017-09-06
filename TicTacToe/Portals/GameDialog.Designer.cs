@@ -1,6 +1,6 @@
-﻿namespace TicTacToe
+﻿namespace TicTacToe.Portals
 {
-    partial class Form1
+    partial class GameDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -224,7 +224,7 @@
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Form1";
+            this.Name = "GameDialog";
             this.Text = "TicTacToe Master 3000 - Deluxe Edition";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

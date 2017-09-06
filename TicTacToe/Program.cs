@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TicTacToe.Portals;
 
 namespace TicTacToe
 {
@@ -17,7 +18,7 @@ namespace TicTacToe
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var form = new Form1();
+            var form = new GameDialog();
 
             var gameState = RequestHandler.StartProgram();
             form.DisplayGameState(gameState);

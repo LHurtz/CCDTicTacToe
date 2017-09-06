@@ -2,6 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using TicTacToe;
+using TicTacToe.Model;
 
 namespace TicTacToeTests
 {
@@ -11,10 +12,10 @@ namespace TicTacToeTests
         [Test]
         public void GenerateBoard_setzt_Zellenwerte_richtig()
         {
-            var moveList = new List<(int x, int y)>();
-            moveList.Add((1, 1));
-            moveList.Add((0, 1));
-            
+            var moveList = new List<Move>();
+            moveList.Add(new Move(1, 1, CellState.X));
+            moveList.Add(new Move(0, 1, CellState.O));
+
             var board = GameStateGenerator.GenerateBoard(moveList);
 
             Assert.AreEqual(CellState.X, board.Single(c => c.X == 1 && c.Y == 1).CellState);
@@ -33,11 +34,9 @@ namespace TicTacToeTests
         [TestCase(99, ExpectedResult = Status.TurnO)]
         public Status DetermineNextPlayer_setzt_nächsten_Spieler_richtig(int moveCount)
         {
-            var moveList = new List<(int x, int y)>();
-            moveList.Add((1, 1));
-            moveList.Add((0, 1));
+            var moveList = new Move[moveCount].ToList();
 
-            var nextPlayerStatus = GameStateGenerator.DetermineNextPlayer(moveCount);
+            var nextPlayerStatus = GameLogic.DetermineNextPlayer(moveList);
 
             return nextPlayerStatus;
         }
