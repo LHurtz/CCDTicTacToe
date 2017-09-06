@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameLogic.cs" />
+    <Compile Include="GameStateGenerator.cs" />
     <Compile Include="Model\Cell.cs" />
     <Compile Include="Model\CellState.cs" />
     <Compile Include="Form1.cs">
@@ -57,6 +59,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\GameState.cs" />
+    <Compile Include="MoveLog.cs" />
     <Compile Include="RequestHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
