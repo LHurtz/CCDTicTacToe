@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="GameLogic.cs" />
     <Compile Include="GameStateGenerator.cs" />
+    <Compile Include="Providers\LogReader.cs" />
     <Compile Include="Model\Cell.cs" />
     <Compile Include="Model\CellState.cs" />
     <Compile Include="Portals\GameDialog.cs">
@@ -61,6 +62,8 @@
     <Compile Include="Model\GameState.cs" />
     <Compile Include="Model\Move.cs" />
     <Compile Include="Providers\MoveLog.cs" />
+    <Compile Include="Model\ReplayState.cs" />
+    <Compile Include="ReplayStateGenerator.cs" />
     <Compile Include="RequestHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

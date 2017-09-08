@@ -44,5 +44,10 @@ namespace TicTacToe
 
             return status;
         }
+
+        public static List<Move> TransformCoordinatesToMoves(List<(int x, int y)> coordinates)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

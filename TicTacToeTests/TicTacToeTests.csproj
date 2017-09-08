@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameStateGeneratorTests.cs" />
+    <Compile Include="LogReaderTests.cs" />
     <Compile Include="MoveLogTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

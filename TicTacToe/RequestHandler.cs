@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TicTacToe.Model;
+using TicTacToe.Providers;
 
 namespace TicTacToe
 {
@@ -42,21 +43,17 @@ namespace TicTacToe
             return new GameState(cells, nextStatus);
         }
 
-        internal static Status DetermineNextPlayer(int count)
+        internal static (GameState gameState, ReplayState replayState) LoadReplay(string fileName)
         {
-            var status = Status.TurnX;
+            List<(int x, int y)> coordinates = LogReader.ReadReplayFile(fileName);
+            List<Move> allReplayMoves = GameLogic.TransformCoordinatesToMoves(coordinates);
+            (ReplayState replayState, Move firstReplayMove) initialReplayStep =
+                ReplayStateGenerator.InitializeReplayState(allReplayMoves);
 
-            var mod = count % 2;
+            var replayState = initialReplayStep.replayState;
+            var gameState = GenerateGameState(new List<Move> {initialReplayStep.firstReplayMove});
 
-            if (mod == 0)
-            {
-                status = Status.TurnX;
-            }
-            else if (mod == 1)
-            {
-                status = Status.TurnO;
-            }
-            return status;
+            return (gameState, replayState);
         }
     }
 }

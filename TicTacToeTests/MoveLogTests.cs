@@ -2,6 +2,7 @@
 using System.IO;
 using NUnit.Framework;
 using TicTacToe;
+using TicTacToe.Providers;
 
 namespace TicTacToeTests
 {

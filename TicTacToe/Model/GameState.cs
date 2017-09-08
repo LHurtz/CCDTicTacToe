@@ -1,4 +1,4 @@
-﻿namespace TicTacToe
+﻿namespace TicTacToe.Model
 {
     public class GameState
     {
@@ -26,7 +26,7 @@
                     new Cell(1, 2, CellState.none),
                     new Cell(2, 2, CellState.none)
                 },
-                TicTacToe.Status.TurnX);
+                Status.TurnX);
         }
     }
 }

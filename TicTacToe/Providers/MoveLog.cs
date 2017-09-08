@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace TicTacToe
+namespace TicTacToe.Providers
 {
     public static class MoveLog
     {
